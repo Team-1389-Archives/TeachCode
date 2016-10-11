@@ -1,7 +1,7 @@
 package programming;
 
 import commands.Command;
-import commands.CommandsUtil;
+import commands.CommandUtils;
 import commands.MonitorDirectionCommand;
 import commands.MoveForwardCommand;
 import commands.WaitTimeCommand;
@@ -14,7 +14,7 @@ public class UserProgram extends Program{
 
 	@Override
 	public Command provideCommand() {
-		return CommandsUtil.combineSimultaneous(CommandsUtil.combineSequential(
+		return CommandUtils.combineSimultaneous(CommandUtils.combineSequential(
 				new MoveForwardCommand(io.robot),
 				new WaitTimeCommand(1000),
 				new MoveForwardCommand(io.robot),

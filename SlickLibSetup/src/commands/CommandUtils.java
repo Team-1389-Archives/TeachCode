@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ListIterator;
 
-public class CommandsUtil {
+public class CommandUtils {
 	public static Command combineSequential(Command...commands){
 		return new Command(){
 			int currentIndex=0;
