@@ -2,11 +2,11 @@ package userProgram;
 
 import commands.Command;
 import commands.CommandUtils;
-import commands.MonitorPositionCommand;
 import commands.MoveRightCommand;
 import commands.WaitTimeCommand;
 import layout.IOLayout;
 import programming.Program;
+import userCommands.ControlSpriteCommand;
 
 public class UserProgram extends Program{
 	public UserProgram(IOLayout io) {
@@ -24,7 +24,7 @@ public class UserProgram extends Program{
 				new MoveRightCommand(io.robot),
 				new WaitTimeCommand(1000),
 				new MoveRightCommand(io.robot),
-				new WaitTimeCommand(1000)),new MonitorPositionCommand(io.robot));
+				new WaitTimeCommand(1000)),new ControlSpriteCommand(io.input,io.robot));
 	}
 
 }
