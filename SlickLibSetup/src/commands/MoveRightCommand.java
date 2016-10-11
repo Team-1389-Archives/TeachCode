@@ -2,14 +2,14 @@ package commands;
 
 import sprite.Sprite;
 
-public class MoveForwardCommand extends Command{
+public class MoveRightCommand extends Command{
 	private Sprite controlledSprite;
-	public MoveForwardCommand(Sprite controlledSprite){
+	public MoveRightCommand(Sprite controlledSprite){
 		this.controlledSprite=controlledSprite;
 	}
 	@Override
 	public boolean execute() {
-		controlledSprite.moveForward();
+		controlledSprite.setX(controlledSprite.getX()+1);
 		return true;
 	}
 	
