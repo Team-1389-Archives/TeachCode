@@ -3,7 +3,7 @@ import org.newdawn.slick.GameContainer;
 
 import commands.Command;
 import layout.IOHardware;
-import programming.UserProgram;
+import userProgram.UserProgram;
 
 public class Controller {
 	Command program;

@@ -61,6 +61,19 @@ public class Sprite {
 			System.err.println("x input is off the screen");
 		}
 	}
+	public void setY(int y){
+		if(y<DisplayManager.gridHeight-1){
+			this.y=y;
+		}else{
+			System.err.println("y input is off the screen");
+		}
+	}
+	public int getX(){
+		return x;
+	}
+	public int getY(){
+		return y;
+	}
 	public void moveForward(){
 		switch(direction){
 		case 0:if(x<DisplayManager.gridWidth-1)x++;
