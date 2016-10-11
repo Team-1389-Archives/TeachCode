@@ -1,12 +1,13 @@
 package sprite;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
-import commands.CommandMap;
-import exec.Main;
+import exec.DisplayManager;
 
 public class Sprite {
+	private static DisplayManager display;
 	int width;
 	int height;
 	int x;
@@ -15,6 +16,9 @@ public class Sprite {
 	Image icon;
 	//CONSTRUCTORS
 	public Sprite(String iconPath,int x,int y,int direction,int width,int height){
+		if(display!=null){
+			display.attach(this);
+		}
 		this.x=x+1;
 		this.y=y+1;
 		this.direction=direction;
@@ -47,16 +51,21 @@ public class Sprite {
 		icon.setRotation(-90*direction);
 		System.out.println(direction);
 	}
-	public void turnRight(){
-		//icon.rotate(90);
-		direction--;
-		direction%=4;
+	public int getDirection(){
+		return direction;
+	}
+	public void setX(int x){
+		if(x<DisplayManager.gridWidth-1){
+			this.x=x;
+		}else{
+			System.err.println("x input is off the screen");
+		}
 	}
 	public void moveForward(){
 		switch(direction){
-		case 0:if(x<Main.gridWidth-1)x++;
+		case 0:if(x<DisplayManager.gridWidth-1)x++;
 		break;
-		case 3:if(y<Main.gridHeight-1)y++;
+		case 3:if(y<DisplayManager.gridHeight-1)y++;
 		break;
 		case 2:if(x>0)x--;
 		break;
@@ -64,32 +73,12 @@ public class Sprite {
 		break;
 		}
 	}
-	public void moveBackward(){
-		switch(direction){
-		case 2:if(x<Main.gridWidth-1)x++;
-		break;
-		case 1:if(y<Main.gridHeight-1)y++;
-		break;
-		case 0:if(x>0)x--;
-		break;
-		case 3:if(y>0)y--;
-		break;
-		}
+	public void update(GameContainer gc, int delta){
 	}
-	public void runCommand(int command){
-		switch(command){
-		case CommandMap.MOVEFORWARD:moveForward();
-		break;
-		case CommandMap.MOVEBACKWARD:moveBackward();
-		break;
-		case CommandMap.TURNLEFT:turnLeft();
-		break;
-		case CommandMap.TURNRIGHT:turnRight();
-		break;
-		default:System.out.println("cannot execute command at this level");
-		}
+	public static void setDisplayManager(DisplayManager display){
+		Sprite.display=display;
 	}
 	public void render(Graphics g){
-		icon.draw(x*Main.gridSpacing-width/2,y*Main.gridSpacing-height/2,width,height);
+		icon.draw(x*DisplayManager.gridSpacing-width/2,y*DisplayManager.gridSpacing-height/2,width,height);
 	}
 }

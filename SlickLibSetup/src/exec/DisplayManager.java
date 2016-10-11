@@ -1,11 +1,15 @@
 package exec;
+import java.util.ArrayList;
+
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
-public class Main extends BasicGame
+
+import sprite.Sprite;
+public class DisplayManager extends BasicGame
 
 {
 	public static final int width=500,//width of the grid in pixels
@@ -16,7 +20,8 @@ public class Main extends BasicGame
 	gridHeight=height/gridSpacing,
 	dotSize=2;//size of the grid marks in pixels
 	Controller robot;
-    public Main()
+	ArrayList<Sprite> sprites;
+    public DisplayManager()
     {
         super("Hands On Code");
     }
@@ -25,7 +30,7 @@ public class Main extends BasicGame
     {
         try
         {
-            AppGameContainer app = new AppGameContainer(new Main());
+            AppGameContainer app = new AppGameContainer(new DisplayManager());
             app.setDisplayMode(500, 400, false);
             app.start();
         }
@@ -38,13 +43,21 @@ public class Main extends BasicGame
     @Override
     public void init(GameContainer container) throws SlickException
     {
+    	sprites=new ArrayList<>();
+    	Sprite.setDisplayManager(this);
     	robot=new Controller();
+    }
+    public void attach(Sprite sprite){
+    	sprites.add(sprite);
     }
  
     @Override
     public void update(GameContainer container, int delta) throws SlickException
     {
     	robot.update(container,delta);
+    	for(Sprite sprite:sprites){
+    		sprite.update(container,delta);
+    	}
     }
  
     public void render(GameContainer container, Graphics g) throws SlickException
@@ -56,6 +69,8 @@ public class Main extends BasicGame
     			g.fillOval(x-dotSize/2, y-dotSize/2, dotSize,dotSize);
     		}
     	}
-    	robot.render(container,g);
+		for (Sprite s : sprites) {
+			s.render(g);
+		}
     }
 }

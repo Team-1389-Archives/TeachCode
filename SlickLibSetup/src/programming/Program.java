@@ -1,17 +1,13 @@
 package programming;
-import java.util.ArrayList;
 
 import commands.Command;
+import layout.IOLayout;
 
 public abstract class Program {
-	protected ArrayList<Command> program;
-	public abstract void run();
-	public ArrayList<Command> getProgram(){
-		run();
-		return program;
-	}
-	public Program(){
-		program=new ArrayList<Command>();
+	IOLayout io;
+	public abstract Command provideCommand();
+	public Program(IOLayout io){
+		this.io=io;
 	}
 
 }
