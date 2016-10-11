@@ -2,6 +2,7 @@ package programming;
 
 import commands.Command;
 import commands.CommandsUtil;
+import commands.MonitorDirectionCommand;
 import commands.MoveForwardCommand;
 import commands.WaitTimeCommand;
 import layout.IOLayout;
@@ -13,7 +14,7 @@ public class UserProgram extends Program{
 
 	@Override
 	public Command provideCommand() {
-		return CommandsUtil.combineSequential(
+		return CommandsUtil.combineSimultaneous(CommandsUtil.combineSequential(
 				new MoveForwardCommand(io.robot),
 				new WaitTimeCommand(1000),
 				new MoveForwardCommand(io.robot),
@@ -21,7 +22,7 @@ public class UserProgram extends Program{
 				new MoveForwardCommand(io.robot),
 				new WaitTimeCommand(1000),
 				new MoveForwardCommand(io.robot),
-				new WaitTimeCommand(1000));
+				new WaitTimeCommand(1000)),new MonitorDirectionCommand(io.robot));
 	}
 
 }

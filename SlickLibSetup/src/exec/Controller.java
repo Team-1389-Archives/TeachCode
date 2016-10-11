@@ -19,7 +19,7 @@ public class Controller {
 
 	public void update(GameContainer gc, int delta) {
 		if(!isFinished){
-			isFinished=program.execute();
+			isFinished=program.exec();
 		}
 	}
 
