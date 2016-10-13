@@ -4,12 +4,16 @@ import commands.Command;
 import commands.CommandUtils;
 import commands.MonitorPositionCommand;
 import commands.MoveRightCommand;
+import commands.TurnLeftCommand;
 import commands.WaitTimeCommand;
 import layout.IOLayout;
 import programming.Program;
+import userCommands.MoveForwardCommand;
+import userCommands.MoveLeftCommand;
 
 public class UserProgram extends Program{
-	public UserProgram(IOLayout io) {
+	public UserProgram(IOLayout io) 
+	{
 		super(io);
 	}
 
@@ -24,7 +28,16 @@ public class UserProgram extends Program{
 				new MoveRightCommand(io.robot),
 				new WaitTimeCommand(1000),
 				new MoveRightCommand(io.robot),
+				new WaitTimeCommand (1000),
+				new MoveRightCommand (io.robot),
+				new WaitTimeCommand (1000),
+				new TurnLeftCommand (io.robot),
+				new WaitTimeCommand (1000),
+				new TurnLeftCommand (io.robot),
+				new WaitTimeCommand (1000),
+//				new MoveLeftCommand (io.robot),
 				new WaitTimeCommand(1000)),new MonitorPositionCommand(io.robot));
+	
 	}
 
 }
