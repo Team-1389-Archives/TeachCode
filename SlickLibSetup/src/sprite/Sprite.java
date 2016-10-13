@@ -55,6 +55,14 @@ public class Sprite {
 		icon.setRotation(-90 * direction);
 		System.out.println(direction);
 	}
+	
+	public void turnRight(){
+		direction--;
+		direction %=4;
+		icon.setCenterOfRotation(width/2, height/2);
+		icon.setRotation(90 * direction);
+		System.out.println(direction);
+	}
 
 	public void setX(int x) {
 		if (x < DisplayManager.gridWidth - 1) {
