@@ -23,8 +23,12 @@ public class MoveForwardCommand extends Command{
 	else if (spriteDirection == 1){//if facing left, move left
 		sprite.setX(sprite.getX()-1);
 	}
-	else if (spriteDirection == 2){//
-		
+	else if (spriteDirection == 2){//if facing down, move down
+		sprite.setY(sprite.getY()-1);
+	}
+	else if (spriteDirection == 3){//if facing right, more right
+		sprite.setX(sprite.getX()+1);
+	}
 	
 		
 		return false;

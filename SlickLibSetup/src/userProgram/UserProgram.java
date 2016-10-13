@@ -17,7 +17,7 @@ public class UserProgram extends Program{
 	public Command provideCommand() {
 		return CommandUtils.combineSimultaneous(CommandUtils.combineSequential(//not amount, 
 			new WaitTimeCommand(1000),
-			new 
+			new MoveDownCommand(io.robot),
 			
 				new WaitTimeCommand(1000)),new MonitorPositionCommand(io.robot));
 	}
