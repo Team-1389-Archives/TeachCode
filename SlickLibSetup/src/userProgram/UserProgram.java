@@ -35,7 +35,7 @@ public class UserProgram extends Program{
 				new WaitTimeCommand (1000),
 				new TurnLeftCommand (io.robot),
 				new WaitTimeCommand (1000),
-//				new MoveLeftCommand (io.robot),
+				new MoveLeftCommand (io.robot),
 				new WaitTimeCommand(1000)),new MonitorPositionCommand(io.robot));
 	
 	}
