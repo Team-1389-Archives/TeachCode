@@ -57,6 +57,9 @@ public class Sprite {
 	}
 	
 	public void turnRight(){
+		if (direction == 0 ){
+			
+		}
 		direction--;
 		direction %=4;
 		icon.setCenterOfRotation(width/2, height/2);

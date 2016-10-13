@@ -1,16 +1,20 @@
 package commands;
 
+import commands.Command;
 import sprite.Sprite;
-
+/** make the sprite move to the left from where it is
+ *
+ */
 public class MoveRightCommand extends Command{
-	private Sprite controlledSprite;
+	private Sprite Sprite;
 	public MoveRightCommand(Sprite controlledSprite){
-		this.controlledSprite=controlledSprite;
+		this.Sprite=controlledSprite;
 	}
+
 	@Override
-	public boolean execute() {
-		controlledSprite.setX(controlledSprite.getX()+1);
+	protected boolean execute() {
+		this.Sprite.setX(this.Sprite.getX()+1);
 		return true;
 	}
-	
+
 }

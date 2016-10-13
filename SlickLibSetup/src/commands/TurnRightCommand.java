@@ -1,8 +1,8 @@
 package commands;
 import sprite.Sprite;
-public class TurnRight {
+public class TurnRightCommand {
 	Sprite sprite;
-	public TurnRight(Sprite controlledSprite){
+	public TurnRightCommand(Sprite controlledSprite){
 		this.sprite = controlledSprite;
 	}
 	protected boolean execute(){
