@@ -8,6 +8,7 @@ public class TurnRightCommand {
 	protected boolean execute(){
 		sprite.turnRight();
 		return true;
+	
 	}
 	
 

@@ -57,15 +57,17 @@ public class Sprite {
 	}
 	
 	public void turnRight(){
-		if (direction == 0 ){
-			
-		}
-		direction--;
+		if (direction == 0 ){//to move right correctly
+			direction+=3;
+			}
+		
+		else{direction--;}
 		direction %=4;
 		icon.setCenterOfRotation(width/2, height/2);
 		icon.setRotation(90 * direction);
 		System.out.println(direction);
-	}
+		}
+	
 
 	public void setX(int x) {
 		if (x < DisplayManager.gridWidth - 1) {
@@ -104,7 +106,7 @@ public class Sprite {
 		case 3:
 			isFacingWall = y < DisplayManager.gridHeight - 1;
 			break;
-		case 2:
+		case 2: 
 			isFacingWall = x > 0;
 			break;
 		case 1:
@@ -112,11 +114,12 @@ public class Sprite {
 			break;
 		}
 		return isFacingWall;
-	}
+	} 
 
 	public boolean isNearWall() {
 		return x < DisplayManager.gridWidth - 1 || y < DisplayManager.gridHeight - 1 || x > 0 || y > 0;
 	}
+	
 
 	public void update(GameContainer gc, int delta) {
 	}

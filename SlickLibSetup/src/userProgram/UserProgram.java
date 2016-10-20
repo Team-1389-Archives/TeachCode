@@ -3,8 +3,8 @@ package userProgram;
 import commands.Command;
 import commands.CommandUtils;
 import commands.MonitorPositionCommand;
+import commands.MoveDownCommand;
 import commands.MoveRightCommand;
-import commands.MoveUpCommand;
 import commands.WaitTimeCommand;
 import layout.IOLayout;
 import programming.Program;
@@ -20,7 +20,7 @@ public class UserProgram extends Program{
 			new WaitTimeCommand(1000),
 			new MoveRightCommand(io.robot),
 			new WaitTimeCommand(1000),
-			new MoveUpCommand(io.robot),
+			new MoveDownCommand(io.robot),
 			
 			
 				new WaitTimeCommand(1000)),new MonitorPositionCommand(io.robot));
