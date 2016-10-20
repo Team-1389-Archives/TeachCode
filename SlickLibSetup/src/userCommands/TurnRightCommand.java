@@ -2,15 +2,19 @@ package userCommands;
 
 import commands.Command;
 
-/** make the sprite turn right
- *
- */
-public class TurnRightCommand extends Command{
+import sprite.Sprite;
 
+public class TurnRightCommand extends Command{
+	Sprite sprite;
+	public TurnRightCommand(Sprite sprite){
+		this.sprite=sprite;
+	}
 	@Override
 	protected boolean execute() {
-		// TODO Auto-generated method stub
-		return false;
+		sprite.turnLeft();
+		sprite.turnLeft();
+		sprite.turnLeft();
+		return true;
 	}
-
+	
 }
