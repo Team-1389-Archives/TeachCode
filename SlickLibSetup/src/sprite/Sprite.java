@@ -1,10 +1,16 @@
 package sprite;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ListIterator;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
+import commands.Command;
 import exec.DisplayManager;
 
 public class Sprite {
@@ -21,7 +27,7 @@ public class Sprite {
 		if (display != null) {
 			display.attach(this);
 		}
-		this.x = x + 1;
+		this.x = x + 1; // controls where the arrow is.
 		this.y = y + 1;
 		this.direction = direction;
 		this.width = width;
@@ -47,12 +53,40 @@ public class Sprite {
 		this(icon, 0, 0);
 	}
 
+	public void Sprite1(String icon) {
+
+	}
+
 	// ---------
 	public void turnLeft() {
 		direction++;
 		direction %= 4;
 		icon.setCenterOfRotation(width / 2, height / 2);
 		icon.setRotation(-90 * direction);
+		System.out.println(direction);
+	}
+
+	public void turnRight() {
+		direction++;
+		direction %= 2;
+		icon.setCenterOfRotation(width / 2, height / 2);
+		icon.setRotation(+90 * direction);
+		System.out.println(direction);
+	}
+
+	public void turndown() {
+		direction++;
+		direction %= 1;
+		icon.setCenterOfRotation(width / 2, height / 2);
+		icon.setRotation(-180 * direction);
+		System.out.println(direction);
+	}
+
+	public void turnup() {
+		direction++;
+		direction %= 3;
+		icon.setCenterOfRotation(width / 2, height / 2);
+		icon.setRotation(180 * direction);
 		System.out.println(direction);
 	}
 
@@ -118,4 +152,11 @@ public class Sprite {
 		icon.draw(x * DisplayManager.gridSpacing - width / 2, y * DisplayManager.gridSpacing - height / 2, width,
 				height);
 	}
-}
+
+   
+				
+	
+
+	
+	}
+

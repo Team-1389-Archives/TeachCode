@@ -62,7 +62,7 @@ public class DisplayManager extends BasicGame
  
     public void render(GameContainer container, Graphics g) throws SlickException
     {
-    	g.setBackground(Color.white );
+    	g.setBackground(Color.yellow );
     	g.setColor(Color.black);
     	for(int x=gridSpacing;x<width;x+=gridSpacing){
     		for(int y=gridSpacing;y<height;y+=gridSpacing){
