@@ -1,9 +1,9 @@
 package layout;
 
-import sprite.Sprite;
+import sprite.GridSprite;
 
 public class IOHardware extends IOLayout{
 	public IOHardware(){
-		robot=new Sprite("res/Robot.png");
+		robot=new GridSprite("res/Robot.png");
 	}
 }

@@ -11,8 +11,8 @@ public class Sprite {
 	private static DisplayManager display;
 	int width;
 	int height;
-	int x;
-	int y;
+	float x;
+	float y;
 	int direction;
 	Image icon;
 
@@ -21,8 +21,8 @@ public class Sprite {
 		if (display != null) {
 			display.attach(this);
 		}
-		this.x = x + 1;
-		this.y = y + 1;
+		this.x = x;
+		this.y = y;
 		this.direction = direction;
 		this.width = width;
 		this.height = height;
@@ -61,27 +61,11 @@ public class Sprite {
 		turnLeft();
 	}
 
-	public void setX(int x) {
-		if (x < DisplayManager.gridWidth && x > 0) {
-			this.x = x;
-		} else {
-			System.err.println("x input is off the screen");
-		}
-	}
-
-	public void setY(int y) {
-		if (y < DisplayManager.gridHeight && y > 0) {
-			this.y = y;
-		} else {
-			System.err.println("y input is off the screen");
-		}
-	}
-
-	public int getX() {
+	public float getX() {
 		return x;
 	}
 
-	public int getY() {
+	public float getY() {
 		return y;
 	}
 
@@ -89,44 +73,7 @@ public class Sprite {
 		return direction;
 	}
 
-	public boolean isFacingWall() {
-		boolean isFacingWall = false;
-		switch (direction) {
-		case 0:
-			isFacingWall = isNearRightWall();
-			break;
-		case 3:
-			isFacingWall = isNearBottomWall();
-			break;
-		case 2:
-			isFacingWall = isNearLeftWall();
-			break;
-		case 1:
-			isFacingWall = isNearTopWall();
-			break;
-		}
-		return isFacingWall;
-	}
 
-	public boolean isNearWall() {
-		return isNearRightWall() || isNearLeftWall() || isNearTopWall() || isNearBottomWall();
-	}
-
-	private boolean isNearRightWall() {
-		return x == DisplayManager.gridWidth - 1;
-	}
-
-	private boolean isNearLeftWall() {
-		return x == 1;
-	}
-
-	private boolean isNearTopWall() {
-		return x == DisplayManager.gridWidth - 1;
-	}
-
-	private boolean isNearBottomWall() {
-		return y == DisplayManager.gridHeight - 1;
-	}
 
 	public void update(GameContainer gc, int delta) {
 	}
@@ -136,7 +83,8 @@ public class Sprite {
 	}
 
 	public void render(Graphics g) {
-		icon.draw(x * DisplayManager.gridSpacing - width / 2, y * DisplayManager.gridSpacing - height / 2, width,
+		System.out.println("x:"+x+" y:"+y);
+		icon.draw(x  - width / 2, y - height / 2, width,
 				height);
 	}
 }

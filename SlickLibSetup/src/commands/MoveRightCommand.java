@@ -1,15 +1,15 @@
 package commands;
 
-import sprite.Sprite;
+import sprite.GridSprite;
 
 public class MoveRightCommand extends Command{
-	private Sprite controlledSprite;
-	public MoveRightCommand(Sprite controlledSprite){
+	private GridSprite controlledSprite;
+	public MoveRightCommand(GridSprite controlledSprite){
 		this.controlledSprite=controlledSprite;
 	}
 	@Override
 	public boolean execute() {
-		controlledSprite.setX(controlledSprite.getX()+1);
+		controlledSprite.setX(controlledSprite.getGridX()+1);
 		return true;
 	}
 	

@@ -7,6 +7,7 @@ import java.util.ListIterator;
 
 public class CommandUtils {
 	public static Command combineSequential(Command...commands){
+		System.out.println(commands);
 		return new Command(){
 			int currentIndex=0;
 			@Override

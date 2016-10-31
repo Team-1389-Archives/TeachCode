@@ -15,11 +15,11 @@ public class UserProgram extends Program {
 	public Command provideCommand() {
 		Command a = CommandUtils.combineSequential(new FindWallCommand(io.robot), new WaitTimeCommand(1000),
 				new TurnRightCommand(io.robot), new WaitTimeCommand(1000));
-		return CommandUtils.combineSequential(new FindWallCommand(io.robot), new WaitTimeCommand(1000),
-				new TurnRightCommand(io.robot), new WaitTimeCommand(1000), new FindWallCommand(io.robot), new WaitTimeCommand(1000),
-				new TurnRightCommand(io.robot), new WaitTimeCommand(1000), new FindWallCommand(io.robot), new WaitTimeCommand(1000),
-				new TurnRightCommand(io.robot), new WaitTimeCommand(1000), new FindWallCommand(io.robot), new WaitTimeCommand(1000),
-				new TurnRightCommand(io.robot), new WaitTimeCommand(1000));
+		return CommandUtils.combineSequential(
+				new FindWallCommand(io.robot), new WaitTimeCommand(1000),new TurnRightCommand(io.robot), new WaitTimeCommand(1000), 
+				new FindWallCommand(io.robot), new WaitTimeCommand(1000),new TurnRightCommand(io.robot), new WaitTimeCommand(1000), 
+				new FindWallCommand(io.robot), new WaitTimeCommand(1000),new TurnRightCommand(io.robot), new WaitTimeCommand(1000), 
+				new FindWallCommand(io.robot), new WaitTimeCommand(1000),new TurnRightCommand(io.robot), new WaitTimeCommand(1000));
 	}
 
 	// DONT TOUCH THIS

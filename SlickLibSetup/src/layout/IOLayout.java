@@ -1,7 +1,7 @@
 package layout;
 
-import sprite.Sprite;
+import sprite.GridSprite;
 
 public class IOLayout {
-	public Sprite robot;
+	public GridSprite robot;
 }
