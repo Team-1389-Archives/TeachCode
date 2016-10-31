@@ -3,7 +3,7 @@ package commands;
 public abstract class Command {
 	boolean initialized;
 	public Command(){
-		initialized=false;
+		reset();
 	}
 	/**
 	 * This will be run at a repeated interval by the controller until it returns true
@@ -17,6 +17,13 @@ public abstract class Command {
 		if(!initialized){
 			init();
 		}
-		return execute();
+		boolean isFinished=execute();
+		if(isFinished){
+			reset();
+		}
+		return isFinished;
+	}
+	public void reset(){
+		initialized=false;
 	}
 }

@@ -46,4 +46,14 @@ public class CommandUtils {
 		
 		};
 	}
+	/**
+	 * runs a command and hangs the thread until the command finishes
+	 * @param command
+	 */
+	public static void executeCommand(Command command){
+		boolean isFinished=false;
+		if(!isFinished){
+			isFinished=command.exec();
+		}
+	}
 }
