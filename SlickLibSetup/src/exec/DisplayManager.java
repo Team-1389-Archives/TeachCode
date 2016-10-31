@@ -26,8 +26,7 @@ public class DisplayManager extends BasicGame
         super("Hands On Code");
     }
  
-    public static void main(String[] arguments)
-    {
+    public static void openDisplay(){
         try
         {
             AppGameContainer app = new AppGameContainer(new DisplayManager());
@@ -39,7 +38,6 @@ public class DisplayManager extends BasicGame
             e.printStackTrace();
         }
     }
- 
     @Override
     public void init(GameContainer container) throws SlickException
     {
