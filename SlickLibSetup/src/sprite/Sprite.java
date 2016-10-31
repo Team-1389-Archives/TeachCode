@@ -53,11 +53,14 @@ public class Sprite {
 		direction %= 4;
 		icon.setCenterOfRotation(width / 2, height / 2);
 		icon.setRotation(-90 * direction);
-		System.out.println(direction);
 	}
-
+	public void turnRight(){
+		turnLeft();
+		turnLeft();
+		turnLeft();
+	}
 	public void setX(int x) {
-		if (x < DisplayManager.gridWidth - 1) {
+		if (x < DisplayManager.gridWidth) {
 			this.x = x;
 		} else {
 			System.err.println("x input is off the screen");
@@ -65,7 +68,7 @@ public class Sprite {
 	}
 
 	public void setY(int y) {
-		if (y < DisplayManager.gridHeight - 1) {
+		if (y < DisplayManager.gridHeight) {
 			this.y = y;
 		} else {
 			System.err.println("y input is off the screen");
@@ -88,10 +91,10 @@ public class Sprite {
 		boolean isFacingWall = false;
 		switch (direction) {
 		case 0:
-			isFacingWall = x < DisplayManager.gridWidth - 1;
+			isFacingWall = x < DisplayManager.gridWidth;
 			break;
 		case 3:
-			isFacingWall = y < DisplayManager.gridHeight - 1;
+			isFacingWall = y < DisplayManager.gridHeight;
 			break;
 		case 2:
 			isFacingWall = x > 0;
