@@ -54,13 +54,15 @@ public class Sprite {
 		icon.setCenterOfRotation(width / 2, height / 2);
 		icon.setRotation(-90 * direction);
 	}
-	public void turnRight(){
+
+	public void turnRight() {
 		turnLeft();
 		turnLeft();
 		turnLeft();
 	}
+
 	public void setX(int x) {
-		if (x < DisplayManager.gridWidth) {
+		if (x < DisplayManager.gridWidth && x > 0) {
 			this.x = x;
 		} else {
 			System.err.println("x input is off the screen");
@@ -68,7 +70,7 @@ public class Sprite {
 	}
 
 	public void setY(int y) {
-		if (y < DisplayManager.gridHeight) {
+		if (y < DisplayManager.gridHeight && y > 0) {
 			this.y = y;
 		} else {
 			System.err.println("y input is off the screen");
@@ -91,23 +93,39 @@ public class Sprite {
 		boolean isFacingWall = false;
 		switch (direction) {
 		case 0:
-			isFacingWall = x < DisplayManager.gridWidth;
+			isFacingWall = isNearRightWall();
 			break;
 		case 3:
-			isFacingWall = y < DisplayManager.gridHeight;
+			isFacingWall = isNearBottomWall();
 			break;
 		case 2:
-			isFacingWall = x > 0;
+			isFacingWall = isNearLeftWall();
 			break;
 		case 1:
-			isFacingWall = y > 0;
+			isFacingWall = isNearTopWall();
 			break;
 		}
 		return isFacingWall;
 	}
 
 	public boolean isNearWall() {
-		return x < DisplayManager.gridWidth - 1 || y < DisplayManager.gridHeight - 1 || x > 0 || y > 0;
+		return isNearRightWall() || isNearLeftWall() || isNearTopWall() || isNearBottomWall();
+	}
+
+	private boolean isNearRightWall() {
+		return x == DisplayManager.gridWidth - 1;
+	}
+
+	private boolean isNearLeftWall() {
+		return x == 1;
+	}
+
+	private boolean isNearTopWall() {
+		return x == DisplayManager.gridWidth - 1;
+	}
+
+	private boolean isNearBottomWall() {
+		return y == DisplayManager.gridHeight - 1;
 	}
 
 	public void update(GameContainer gc, int delta) {

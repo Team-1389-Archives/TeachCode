@@ -2,27 +2,32 @@ package userProgram;
 
 import commands.Command;
 import commands.CommandUtils;
-import commands.MonitorPositionCommand;
-import commands.MoveRightCommand;
+import commands.FindWallCommand;
+import commands.TurnRightCommand;
 import commands.WaitTimeCommand;
 import exec.DisplayManager;
 import layout.IOHardware;
 import programming.Program;
 
-public class UserProgram extends Program{
+public class UserProgram extends Program {
 
 	@Override
 	public Command provideCommand() {
-		return CommandUtils.combineSimultaneous(CommandUtils.combineSequential(new MoveRightCommand(io.robot)),new MonitorPositionCommand(io.robot));
+		Command a = CommandUtils.combineSequential(new FindWallCommand(io.robot), new WaitTimeCommand(1000),
+				new TurnRightCommand(io.robot), new WaitTimeCommand(1000));
+		return CommandUtils.combineSequential(new FindWallCommand(io.robot), new WaitTimeCommand(1000),
+				new TurnRightCommand(io.robot), new WaitTimeCommand(1000), new FindWallCommand(io.robot), new WaitTimeCommand(1000),
+				new TurnRightCommand(io.robot), new WaitTimeCommand(1000), new FindWallCommand(io.robot), new WaitTimeCommand(1000),
+				new TurnRightCommand(io.robot), new WaitTimeCommand(1000), new FindWallCommand(io.robot), new WaitTimeCommand(1000),
+				new TurnRightCommand(io.robot), new WaitTimeCommand(1000));
 	}
-	
-	
-	
-	//DONT TOUCH THIS
-	public void initHardware(){
-		Program.io=new IOHardware();
+
+	// DONT TOUCH THIS
+	public void initHardware() {
+		Program.io = new IOHardware();
 	}
-	public static void main(String[] args){
+
+	public static void main(String[] args) {
 		Program.setProgram(new UserProgram());
 		DisplayManager.openDisplay();
 	}
