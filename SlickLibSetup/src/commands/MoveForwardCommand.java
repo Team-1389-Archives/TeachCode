@@ -1,7 +1,6 @@
 package commands;
 
 import sprite.GridSprite;
-import sprite.Sprite;
 
 public class MoveForwardCommand extends Command{
 	GridSprite sprite;

@@ -1,11 +1,7 @@
 package userProgram;
 
 import commands.Command;
-import commands.CommandUtils;
 import commands.DoNothingCommand;
-import commands.FindWallCommand;
-import commands.TurnRightCommand;
-import commands.WaitTimeCommand;
 import exec.DisplayManager;
 import layout.IOHardware;
 import programming.Program;

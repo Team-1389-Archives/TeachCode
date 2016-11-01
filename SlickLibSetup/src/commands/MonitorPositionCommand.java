@@ -1,7 +1,6 @@
 package commands;
 
 import sprite.GridSprite;
-import sprite.Sprite;
 
 public class MonitorPositionCommand extends Command{
 	GridSprite sprite;
