@@ -60,8 +60,8 @@ public class GridSprite extends Sprite{
 	@Override
 	public void update(GameContainer gc, int delta){
 		super.update(gc, delta);
-		x=gridToCoord(gridX);
-		y=gridToCoord(gridY);
+		pos.x=gridToCoord(gridX);
+		pos.y=gridToCoord(gridY);
 
 	}
 	public boolean isNearWall() {

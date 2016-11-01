@@ -4,6 +4,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Vector2f;
 
 import exec.DisplayManager;
 
@@ -11,8 +12,7 @@ public class Sprite {
 	private static DisplayManager display;
 	int width;
 	int height;
-	float x;
-	float y;
+	Vector2f pos;
 	int direction;
 	Image icon;
 
@@ -21,8 +21,7 @@ public class Sprite {
 		if (display != null) {
 			display.attach(this);
 		}
-		this.x = x;
-		this.y = y;
+		this.pos = new Vector2f(x,y);
 		this.direction = direction;
 		this.width = width;
 		this.height = height;
@@ -62,11 +61,11 @@ public class Sprite {
 	}
 
 	public float getX() {
-		return x;
+		return pos.x;
 	}
 
 	public float getY() {
-		return y;
+		return pos.y;
 	}
 
 	public int getDirection() {
@@ -83,8 +82,8 @@ public class Sprite {
 	}
 
 	public void render(Graphics g) {
-		System.out.println("x:"+x+" y:"+y);
-		icon.draw(x  - width / 2, y - height / 2, width,
+		System.out.println("x:"+pos.x+" y:"+pos.y);
+		icon.draw(pos.x  - width / 2, pos.y - height / 2, width,
 				height);
 	}
 }

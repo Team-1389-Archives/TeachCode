@@ -2,6 +2,7 @@ package userProgram;
 
 import commands.Command;
 import commands.CommandUtils;
+import commands.DoNothingCommand;
 import commands.FindWallCommand;
 import commands.TurnRightCommand;
 import commands.WaitTimeCommand;
@@ -13,13 +14,7 @@ public class UserProgram extends Program {
 
 	@Override
 	public Command provideCommand() {
-		Command a = CommandUtils.combineSequential(new FindWallCommand(io.robot), new WaitTimeCommand(1000),
-				new TurnRightCommand(io.robot), new WaitTimeCommand(1000));
-		return CommandUtils.combineSequential(
-				new FindWallCommand(io.robot), new WaitTimeCommand(1000),new TurnRightCommand(io.robot), new WaitTimeCommand(1000), 
-				new FindWallCommand(io.robot), new WaitTimeCommand(1000),new TurnRightCommand(io.robot), new WaitTimeCommand(1000), 
-				new FindWallCommand(io.robot), new WaitTimeCommand(1000),new TurnRightCommand(io.robot), new WaitTimeCommand(1000), 
-				new FindWallCommand(io.robot), new WaitTimeCommand(1000),new TurnRightCommand(io.robot), new WaitTimeCommand(1000));
+		return new DoNothingCommand();
 	}
 
 	// DONT TOUCH THIS
